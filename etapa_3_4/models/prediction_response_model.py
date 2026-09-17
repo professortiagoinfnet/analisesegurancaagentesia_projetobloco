@@ -1,6 +1,9 @@
 from pydantic import BaseModel
 
 class PredictionResponse(BaseModel):
-    id: int
-    text: str
+    message: str
     intent: str
+
+class PredictionValid(BaseModel):
+    message: str
+    valid: str

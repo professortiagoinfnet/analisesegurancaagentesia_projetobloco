@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import SQLModel
 
@@ -26,6 +26,7 @@ app.add_middleware(
 
 @app.middleware("http")
 async def security_headers(request: Request, call_next):
+
     response = await call_next(request)
 
     response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
