@@ -1,0 +1,22 @@
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+from routes.prediction_route import limiter as prediction_limiter
+
+from fastapi import FastAPI
+from sqlmodel import SQLModel
+
+from database import engine
+from routes.auth_route import router as auth_router
+from routes.prediction_route import router as prediction_router
+
+app = FastAPI()
+app.state.limiter  = prediction_limiter
+app.add_exception_handler(
+    RateLimitExceeded,
+    _rate_limit_exceeded_handler
+)
+
+SQLModel.metadata.create_all(engine)
+
+app.include_router(auth_router)
+app.include_router(prediction_router)
