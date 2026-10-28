@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="0.861" timestamp="2026-10-11T17:23:13.111104-03:00" hostname="LAPTOP-2FLV4HEI"><testcase classname="tests.test_api" name="test_exemplo" time="0.001"><failure message="assert (1 + 1) == 3">def test_exemplo():
+&gt;       assert 1 + 1 == 3
+E       assert (1 + 1) == 3
+
+tests\test_api.py:2: AssertionError</failure></testcase><testcase classname="tests.test_home" name="test_home" time="0.011" /><testcase classname="tests.test_home" name="test_login_valido" time="0.011" /><testcase classname="tests.test_home" name="test_login_invalido" time="0.006" /><testcase classname="tests.test_home" name="test_rota_protegida_sem_token" time="0.005" /></testsuite></testsuites>
