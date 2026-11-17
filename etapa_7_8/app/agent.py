@@ -23,8 +23,11 @@ def classificar_intencao(texto: str) -> str:
     response.raise_for_status()
     dados = response.json()
 
-    return (f"Intenção: {dados['intent']}. \
-              Probability: {dados['probability']}")
+    resposta_final = f"Intenção: {dados['intent']}. \
+              Probability: {dados['probability']}"
+    print(resposta_final)
+
+    return (resposta_final)
 
 def configurar_agent():
     agent = Agent(

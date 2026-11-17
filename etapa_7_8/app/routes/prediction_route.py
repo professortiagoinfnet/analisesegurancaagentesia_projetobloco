@@ -1,3 +1,5 @@
+from agent_groq import classificar_groq
+
 import joblib
 from agent import classificar
 
@@ -129,3 +131,8 @@ def predict(predictionRequest: PredictionRequest):
 def predict(predictionRequest: PredictionRequest):
     resposta = classificar(predictionRequest.message)
     return ({"response": resposta.final_output})
+
+@router.post("/classify_comllmgroq")
+def predict(predictionRequest: PredictionRequest):
+    resposta = classificar_groq(predictionRequest.message)
+    return {"response": resposta.final_output}

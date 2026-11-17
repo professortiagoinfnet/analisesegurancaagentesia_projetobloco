@@ -15,6 +15,6 @@ agent = Agent(
     ''',
     tools=[somar]
 )
-prompt_user = "Olá, calcule 123456 + 654321"
+prompt_user = "Olá, calcule 1 + 1"
 resposta = Runner.run_sync(agent, prompt_user)
 print(resposta.final_output)
